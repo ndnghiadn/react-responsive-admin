@@ -1,0 +1,34 @@
+[
+    {
+        "icon": "fe-heart",
+        "value": 58.947,
+        "subTitle": "Total Revenue",
+        "color": "primary",
+        "prefix": "$",
+        "suffix": ""
+    },
+    {
+        "icon": "fe-shopping-cart",
+        "value": 127,
+        "subTitle": "Today's Sales",
+        "color": "success",
+        "prefix": "",
+        "suffix": ""
+    },
+    {
+        "icon": "fe-bar-chart-line",
+        "value": 0.58,
+        "subTitle": "Conversion",
+        "color": "danger",
+        "prefix": "",
+        "suffix": "%"
+    },
+    {
+        "icon": "fe-eye",
+        "value": 78.41,
+        "subTitle": "Today's Visits",
+        "color": "warning",
+        "prefix": "",
+        "suffix": "K"
+    }
+]
