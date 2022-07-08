@@ -1,9 +1,12 @@
 import React from "react";
 
 import { NavLink } from "react-router-dom";
-
+import { Home, Grid, FileText, Layout, Briefcase, Package, Gift, } from "react-feather";
+import { useState } from "react";
 
 const Sidebar = () => {
+
+
   return (
     <div className="left-side-menu">
       <div className="h-100">
@@ -16,25 +19,25 @@ const Sidebar = () => {
             </a>
             <nav className="nav flex-column" id="two-col-sidenav-main">
               <a className="nav-link" href="#dashboard" title="Dashboard">
-                <i data-feather="home" />
+                <Home />
               </a>
               <a className="nav-link" href="#apps" title="Apps">
-                <i data-feather="grid" />
+                <Grid />
               </a>
               <a className="nav-link" href="#pages" title="Pages">
-                <i data-feather="file-text" />
+               <FileText />
               </a>
               <a className="nav-link" href="#layouts" title="Layouts">
-                <i data-feather="layout" />
+              <Layout />
               </a>
               <a className="nav-link" href="#uielements" title="UI Elements">
-                <i data-feather="briefcase" />
+                <Briefcase />
               </a>
               <a className="nav-link" href="#components" title="Components">
-                <i data-feather="package" />
+              <Package />
               </a>
               <a className="nav-link" href="widgets.html" title="Widgets">
-                <i data-feather="gift" />
+              <Gift />
               </a>
             </nav>
           </div>

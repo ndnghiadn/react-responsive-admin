@@ -3,14 +3,18 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './sass/App.scss';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from './components/Login/Login';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+    <Routes>
+          <Route path="/" element={<App />} />
+          <Route path="/login" element={<Login />} />
+        </Routes>
     </BrowserRouter>
   </React.StrictMode>
 );

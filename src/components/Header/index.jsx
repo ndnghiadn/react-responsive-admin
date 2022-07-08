@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Input from "../Elements/Input/Input";
 
 const mainNav = [
   {
@@ -12,6 +14,7 @@ const mainNav = [
 ];
 
 const Header = () => {
+ 
   return (
   <>
   <div className="navbar-custom">
@@ -21,10 +24,7 @@ const Header = () => {
         <form className="app-search">
           <div className="app-search-box dropdown">
             <div className="input-group" id="search-group">
-              <input type="search" className="form-control" placeholder="Search..." id="top-search" />
-              <button className="btn input-group-text" type="submit">
-                <i className="fe-search" />
-              </button>
+              <Input type="search" placeHolder="Search..."/>
             </div>
             <div className="dropdown-menu dropdown-lg" id="search-dropdown">
               {/* item*/}
@@ -272,10 +272,10 @@ const Header = () => {
           </a>
           <div className="dropdown-divider" />
           {/* item*/}
-          <a href="#" className="dropdown-item notify-item">
+          <Link to="/login" className="dropdown-item notify-item">
             <i className="fe-log-out" />
             <span>Logout</span>
-          </a>
+          </Link>
         </div>
       </li>
       <li className="dropdown notification-list">

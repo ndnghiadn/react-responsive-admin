@@ -34,6 +34,7 @@ const pieChartSeries = [68];
 
 function Content() {
 
+  
   return (
    
     <div className="content-page">
@@ -48,6 +49,9 @@ function Content() {
               <form className="d-flex align-items-center mb-3">
                 <div className="input-group input-group-sm">
                   <input type="text" className="form-control border-0 shadow" id="dash-daterange" />
+             
+
+
                   <span className="input-group-text bg-primary border-primary text-white">
                     <i className="mdi mdi-calendar-range" />
                   </span>
