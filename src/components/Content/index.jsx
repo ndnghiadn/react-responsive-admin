@@ -1,6 +1,39 @@
-import React from 'react'
+import React from 'react';
+import Chart from '../Chart';
+
+const barChartOptions = {
+    chart: {
+      type: 'bar'
+    },
+    xaxis: {
+      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+    }
+};
+const barChartSeries = [
+    {
+      name: "series-1",
+      data: [30, 40, 45, 50, 49, 60, 70, 91]
+    }
+];
+const pieChartOptions = {
+    series: [70],
+    chart: {
+    height: 350,
+    type: 'radialBar',
+  },
+  plotOptions: {
+    radialBar: {
+      hollow: {
+        size: '70%',
+      }
+    },
+  },
+  labels: ['Cricket'],
+  };
+const pieChartSeries = [68];
 
 function Content() {
+
   return (
    
     <div className="content-page">
@@ -44,7 +77,7 @@ function Content() {
                 </div>
                 <div className="col-6">
                   <div className="text-end">
-                    <h3 className="text-dark mt-1">$<span data-plugin="counterup">58,947</span></h3>
+                    <h3 className="text-dark mt-1"><span data-plugin="counterup" style={{ display: 'inline'}}>$58,947</span></h3>
                     <p className="text-muted mb-1 text-truncate">Total Revenue</p>
                   </div>
                 </div>
@@ -132,7 +165,7 @@ function Content() {
               </div>
               <h4 className="header-title mb-0">Total Revenue</h4>
               <div className="widget-chart text-center" dir="ltr">
-                <div id="total-revenue" className="mt-0" data-colors="#2892fd" />
+                <Chart options={pieChartOptions} series={pieChartSeries} type="donut" />
                 <h5 className="text-muted mt-0">Total sales made today</h5>
                 <h2>$178</h2>
                 <p className="text-muted w-75 mx-auto sp-line-2">Traditional heading elements are designed to work best in the meat of your page content.</p>
@@ -166,7 +199,7 @@ function Content() {
               </div>
               <h4 className="header-title mb-3">Sales Analytics</h4>
               <div dir="ltr">
-                <div id="sales-analytics" className="mt-4" data-colors="#1abc9c,#2892fd" />
+                <Chart options={barChartOptions} series={barChartSeries} type="bar" />
               </div>
             </div>
           </div> 

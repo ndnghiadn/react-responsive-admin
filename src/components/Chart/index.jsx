@@ -1,84 +1,16 @@
-import { Button } from 'antd';
-import React from 'react';
-import './Chart.scss';
-import {
-  ResponsiveContainer,
-  ComposedChart,
-  Line,
-  Area,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-} from 'recharts';
+import React from 'react'
+import Chart from "react-apexcharts";
 
-const data = [
-  {
-    name: 'Nguyen Van A',
-    uv: 590,
-    pv: 800,
-    amt: 1400,
-  },
-  {
-    name: 'Le Van B',
-    uv: 868,
-    pv: 967,
-    amt: 1506,
-  },
-  {
-    name: 'Bui Thi C',
-    uv: 1397,
-    pv: 1098,
-    amt: 989,
-  },
-  {
-    name: 'Pham Thi D',
-    uv: 1480,
-    pv: 1200,
-    amt: 1228,
-  },
-  {
-    name: 'Tran Viet E',
-    uv: 1520,
-    pv: 1108,
-    amt: 1100,
-  },
-  {
-    name: 'Phan Thanh F',
-    uv: 1400,
-    pv: 680,
-    amt: 1700,
-  },
-];
-
-const Chart = () => {
+const CustomChart = ({ options, series, type }) => {
   return (
-    <div className="container">
-      <Button>Tính lương</Button>
-
-      <div style={{ width: '100%', height: 500, marginTop: '50px' }}>
-        <ResponsiveContainer>
-          <ComposedChart
-            width={500}
-            height={400}
-            data={data}
-            
-          >
-            <CartesianGrid stroke="#f5f5f5" />
-            <XAxis dataKey="name" scale="band" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <Area type="monotone" dataKey="amt" fill="#8884d8" stroke="#8884d8" />
-            <Bar dataKey="pv" barSize={20} fill="#413ea0" />
-            <Line type="monotone" dataKey="uv" stroke="#ff7300" />
-          </ComposedChart>
-        </ResponsiveContainer>
-      </div>
-    </div>
+    <Chart
+        className="mt-0"
+        options={options}
+        series={series}
+        type={type}
+        width="100%"
+    />
   )
 }
 
-export default Chart
+export default CustomChart

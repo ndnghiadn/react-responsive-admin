@@ -20,7 +20,7 @@ const Header = () => {
       <li className="d-none d-lg-block">
         <form className="app-search">
           <div className="app-search-box dropdown">
-            <div className="input-group">
+            <div className="input-group" id="search-group">
               <input type="search" className="form-control" placeholder="Search..." id="top-search" />
               <button className="btn input-group-text" type="submit">
                 <i className="fe-search" />
@@ -322,7 +322,7 @@ const Header = () => {
         </a>
         {/* End mobile menu toggle*/}
       </li>   
-      <li className="dropdown d-none d-xl-block">
+      <li className="dropdown d-none d-xl-block" id="d-none">
         <a className="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
           Create New
           <i className="mdi mdi-chevron-down" /> 
@@ -356,7 +356,7 @@ const Header = () => {
           </a>
         </div>
       </li>
-      <li className="dropdown dropdown-mega d-none d-xl-block">
+      <li className="dropdown dropdown-mega d-xl-block" id="d-none">
         <a className="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
           Mega Menu
           <i className="mdi mdi-chevron-down" /> 
