@@ -1,0 +1,20 @@
+[
+    {
+        "marketplaces": "Themes Market",
+        "date": "08/07/2022",
+        "payouts": 5848.68,
+        "status": "Upcoming"
+    },
+    {
+        "marketplaces": "Freelance",
+        "date": "08/07/2022",
+        "payouts": 1247.25,
+        "status": "Paid"
+    },
+    {
+        "marketplaces": "Share Holding",
+        "date": "09/07/2022",
+        "payouts": 248.75,
+        "status": "Overdue"
+    }
+]

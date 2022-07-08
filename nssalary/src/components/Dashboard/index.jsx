@@ -1,5 +1,5 @@
 import React from 'react';
-import './Dashboard.scss';
+import './style.scss';
 
 const Dashboard = () => {
   return (

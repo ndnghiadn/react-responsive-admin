@@ -1,4 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { toggle } from "../../store/slice/toggleDisplaySidebar";
+import Input from "../Elements/Input/Input";
 
 const mainNav = [
   {
@@ -12,6 +16,14 @@ const mainNav = [
 ];
 
 const Header = () => {
+  const dispatch = useDispatch();
+  const [isDisplaySidebar, setIsDisplaySidebar] = useState(true);
+
+  const handleToggleSidebar = () => {
+    setIsDisplaySidebar(!isDisplaySidebar);
+    dispatch(toggle(!isDisplaySidebar));
+  }
+ 
   return (
   <>
   <div className="navbar-custom">
@@ -20,11 +32,8 @@ const Header = () => {
       <li className="d-none d-lg-block">
         <form className="app-search">
           <div className="app-search-box dropdown">
-            <div className="input-group">
-              <input type="search" className="form-control" placeholder="Search..." id="top-search" />
-              <button className="btn input-group-text" type="submit">
-                <i className="fe-search" />
-              </button>
+            <div className="input-group" id="search-group">
+              <Input type="search" placeHolder="Search..."/>
             </div>
             <div className="dropdown-menu dropdown-lg" id="search-dropdown">
               {/* item*/}
@@ -272,10 +281,10 @@ const Header = () => {
           </a>
           <div className="dropdown-divider" />
           {/* item*/}
-          <a href="#" className="dropdown-item notify-item">
+          <Link to="/login" className="dropdown-item notify-item">
             <i className="fe-log-out" />
             <span>Logout</span>
-          </a>
+          </Link>
         </div>
       </li>
       <li className="dropdown notification-list">
@@ -308,7 +317,7 @@ const Header = () => {
     <ul className="list-unstyled topnav-menu topnav-menu-left m-0">
       <li>
         <button className="button-menu-mobile waves-effect waves-light">
-          <i className="fe-menu" />
+          <i className="fe-menu" onClick={handleToggleSidebar}/>
         </button>
       </li>
       <li>
@@ -322,7 +331,7 @@ const Header = () => {
         </a>
         {/* End mobile menu toggle*/}
       </li>   
-      <li className="dropdown d-none d-xl-block">
+      <li className="dropdown d-none d-xl-block" id="d-none">
         <a className="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
           Create New
           <i className="mdi mdi-chevron-down" /> 
@@ -356,7 +365,7 @@ const Header = () => {
           </a>
         </div>
       </li>
-      <li className="dropdown dropdown-mega d-none d-xl-block">
+      <li className="dropdown dropdown-mega d-xl-block" id="d-none">
         <a className="nav-link dropdown-toggle waves-effect waves-light" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
           Mega Menu
           <i className="mdi mdi-chevron-down" /> 
