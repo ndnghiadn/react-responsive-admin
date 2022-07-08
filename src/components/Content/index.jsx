@@ -1,19 +1,136 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Chart from '../Chart';
+import Flatpickr from "react-flatpickr";
+import rangePlugin from 'flatpickr/dist/plugins/rangePlugin'
 
 const barChartOptions = {
-    chart: {
-      type: 'bar'
-    },
-    xaxis: {
-      categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+  chart: {
+    height: 350,
+    type: 'bar'
+  },
+  plotOptions: {
+    bar: {
+      columnWidth: '60%'
     }
+  },
+  colors: ['#00E396'],
+  dataLabels: {
+    enabled: false
+  },
+  legend: {
+    show: true,
+    showForSingleSeries: true,
+    customLegendItems: ['Actual', 'Expected'],
+    markers: {
+      fillColors: ['#00E396', '#775DD0']
+    }
+  }
 };
 const barChartSeries = [
-    {
-      name: "series-1",
-      data: [30, 40, 45, 50, 49, 60, 70, 91]
-    }
+  {
+    name: 'Actual',
+    data: [
+      {
+        x: '2011',
+        y: 1292,
+        goals: [
+          {
+            name: 'Expected',
+            value: 1400,
+            strokeHeight: 5,
+            strokeColor: '#775DD0'
+          }
+        ]
+      },
+      {
+        x: '2012',
+        y: 4432,
+        goals: [
+          {
+            name: 'Expected',
+            value: 5400,
+            strokeHeight: 5,
+            strokeColor: '#775DD0'
+          }
+        ]
+      },
+      {
+        x: '2013',
+        y: 5423,
+        goals: [
+          {
+            name: 'Expected',
+            value: 5200,
+            strokeHeight: 5,
+            strokeColor: '#775DD0'
+          }
+        ]
+      },
+      {
+        x: '2014',
+        y: 6653,
+        goals: [
+          {
+            name: 'Expected',
+            value: 6500,
+            strokeHeight: 5,
+            strokeColor: '#775DD0'
+          }
+        ]
+      },
+      {
+        x: '2015',
+        y: 8133,
+        goals: [
+          {
+            name: 'Expected',
+            value: 6600,
+            strokeHeight: 13,
+            strokeWidth: 0,
+            strokeLineCap: 'round',
+            strokeColor: '#775DD0'
+          }
+        ]
+      },
+      {
+        x: '2016',
+        y: 7132,
+        goals: [
+          {
+            name: 'Expected',
+            value: 7500,
+            strokeHeight: 5,
+            strokeColor: '#775DD0'
+          }
+        ]
+      },
+      {
+        x: '2017',
+        y: 7332,
+        goals: [
+          {
+            name: 'Expected',
+            value: 8700,
+            strokeHeight: 5,
+            strokeColor: '#775DD0'
+          }
+        ]
+      },
+      {
+        x: '2018',
+        y: 6553,
+        goals: [
+          {
+            name: 'Expected',
+            value: 7300,
+            strokeHeight: 2,
+            strokeDashArray: 2,
+            strokeColor: '#775DD0'
+          }
+        ]
+      }
+    ]
+  }
 ];
 const pieChartOptions = {
     series: [70],
@@ -28,11 +145,12 @@ const pieChartOptions = {
       }
     },
   },
-  labels: ['Cricket'],
+  labels: ['Revenue'],
   };
 const pieChartSeries = [68];
 
 function Content() {
+  const [date, setDate] = useState(new Date());
 
   return (
    
@@ -47,7 +165,17 @@ function Content() {
             <div className="page-title-right">
               <form className="d-flex align-items-center mb-3">
                 <div className="input-group input-group-sm">
-                  <input type="text" className="form-control border-0 shadow" id="dash-daterange" />
+                <Flatpickr
+                  value={date} // giá trị ngày tháng
+                  // các option thêm cho thư viện
+                  options={{
+                    dateFormat: "d-m-Y", // format ngày giờ
+                    plugins: [new rangePlugin({ input: "#secondRangeInput" })]
+                  }}
+                  // event
+                  onChange={(dateSelect) => setDate(dateSelect)}
+                />
+                <input id="secondRangeInput" style={{ display: 'none' }} />
                   <span className="input-group-text bg-primary border-primary text-white">
                     <i className="mdi mdi-calendar-range" />
                   </span>
@@ -165,7 +293,7 @@ function Content() {
               </div>
               <h4 className="header-title mb-0">Total Revenue</h4>
               <div className="widget-chart text-center" dir="ltr">
-                <Chart options={pieChartOptions} series={pieChartSeries} type="donut" />
+                <Chart options={pieChartOptions} series={pieChartSeries} type="radialBar" height="288" />
                 <h5 className="text-muted mt-0">Total sales made today</h5>
                 <h2>$178</h2>
                 <p className="text-muted w-75 mx-auto sp-line-2">Traditional heading elements are designed to work best in the meat of your page content.</p>
@@ -199,7 +327,7 @@ function Content() {
               </div>
               <h4 className="header-title mb-3">Sales Analytics</h4>
               <div dir="ltr">
-                <Chart options={barChartOptions} series={barChartSeries} type="bar" />
+                <Chart options={barChartOptions} series={barChartSeries} type="bar" height="450" />
               </div>
             </div>
           </div> 
