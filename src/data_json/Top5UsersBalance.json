@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Tomaslau",
+        "currency": "BTC",
+        "balance": "0.00816117 BTC",
+        "reservedInOrder": "0.00097036 BTC"
+    },
+    {
+        "name": "Erwin E. Brown",
+        "currency": "ETH",
+        "balance": "3.16117008 ETH",
+        "reservedInOrder": "1.70360009 ETH"
+    },
+    {
+        "name": "Margeret V. Ligon",
+        "currency": "EUR",
+        "balance": "25.08 EUR",
+        "reservedInOrder": "12.58 EUR"
+    },
+    {
+        "name": "Jose D. Delacruz",
+        "currency": "CNY",
+        "balance": "82.00 CNY",
+        "reservedInOrder": "30.83 CNY"
+    },
+    {
+        "name": "Luke J. Sain",
+        "currency": "BTC",
+        "balance": "2.00816117 BTC",
+        "reservedInOrder": "1.00097036 BTC"
+    }
+]
